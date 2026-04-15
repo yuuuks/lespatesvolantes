@@ -1,0 +1,173 @@
+    <!-- Hero -->
+    <section class="hero-c">
+      <!-- Idéogramme en filigrane -->
+      <span class="hero-c__char" aria-hidden="true">面</span>
+      <!-- Barre horizontale décorative -->
+      <div class="hero-c__bar" aria-hidden="true"></div>
+
+      <div class="hero-c__content">
+        <p class="hero-c__eyebrow">La Rochelle · Cuisine Chinoise</p>
+        <h1 class="hero-c__title">
+          <span class="hero-c__title-outline">Les</span><br />
+          <em class="hero-c__title-em">Pâtes</em><br />
+          Volantes
+        </h1>
+        <div class="hero-c__meta">
+          <div class="hero-c__meta-line"></div>
+          <p>Lamian · Pad Thaï · Nouilles au Wok</p>
+        </div>
+        <a href="#a-propos" class="hero-c__btn-secondary">Notre histoire →</a>
+              <div class="container">
+        <div class="hero-c__ctas">
+          <button @click="menuOpen = true" class="hero-c__btn-primary">Voir le menu</button>
+        </div> 
+      </div>
+      </div>
+
+
+    </section>
+
+<style>
+/* ── Hero Option C — Typographique bold ─────── */
+.hero-c {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 0 6rem;
+  background: #F9F5EF;
+}
+
+@media (max-width: 768px) {
+  .hero-c { padding: 6rem 2rem 2rem; }
+}
+
+/* Idéogramme 面 en filigrane */
+.hero-c__char {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(16rem, 28vw, 32rem);
+  line-height: 1;
+  color: rgba(193, 68, 14, 0.05);
+  font-family: 'Playfair Display', serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Filet horizontal décoratif */
+.hero-c__bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #C1440E;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.hero-c__content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero-c__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #C1440E;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.hero-c__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  color: #2C2C2C;
+  margin-bottom: 2rem;
+}
+
+/* "Les" en texte contour */
+.hero-c__title-outline {
+  -webkit-text-stroke: 2px #2C2C2C;
+  color: transparent;
+}
+
+/* "Pâtes" en italique terracotta */
+.hero-c__title-em {
+  font-style: italic;
+  color: #C1440E;
+  -webkit-text-stroke: 0;
+}
+
+.hero-c__meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-c__meta-line {
+  width: 30px;
+  height: 1px;
+  background: #8C7B6B;
+  flex-shrink: 0;
+}
+
+.hero-c__meta p {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8C7B6B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.hero-c__ctas {
+  margin-top: 2rem;
+}
+
+.hero-c__btn-primary {
+  background: #C1440E;
+  color: #F9F5EF;
+  padding: 1.1rem 3.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.hero-c__btn-primary:hover {
+  background: #2C2C2C;
+  transform: translateY(-1px);
+}
+
+.hero-c__btn-secondary {
+  color: #2C2C2C;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  border-bottom: 1px solid #2C2C2C;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hero-c__btn-secondary:hover {
+  color: #C1440E;
+  border-color: #C1440E;
+}
+
+</style>
