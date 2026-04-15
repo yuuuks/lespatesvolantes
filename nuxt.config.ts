@@ -12,6 +12,9 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'Restaurant Les Pâtes Volantes - Pâtes fraîches artisanales' },
+        ...(process.env.NOINDEX === 'true'
+          ? [{ name: 'robots', content: 'noindex, nofollow' }]
+          : []),
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
