@@ -30,6 +30,17 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           <li><a href="#horaires" class="nav__link">Horaires</a></li>
           <li><a href="#services" class="nav__link">Services</a></li>
         </ul>
+        <a href="https://www.ubereats.com/fr/store/les-pates-volantes/NGicsfrxRbSE7hQeYpmJHQ" target="_blank" rel="noopener noreferrer" class="nav__cta">
+          <svg class="nav__cta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="5.5" cy="17.5" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="18.5" cy="17.5" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 17.5h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M16 17.5V11l-3-5H8L6 11h10" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M16 11h4l1 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="7" r="1" fill="currentColor"/>
+          </svg>
+          Commander →
+        </a>
         <button @click="mobileNavOpen = !mobileNavOpen" class="nav__burger" :aria-expanded="mobileNavOpen" aria-label="Menu">
           <span :class="['nav__burger-line', { 'top-open': mobileNavOpen }]"></span>
           <span :class="['nav__burger-line', { 'mid-open': mobileNavOpen }]"></span>
@@ -46,6 +57,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           <a href="#horaires" class="mobile-nav__link" @click="mobileNavOpen = false">Horaires</a>
           <a href="#services" class="mobile-nav__link" @click="mobileNavOpen = false">Services</a>
           <button class="mobile-nav__menu-btn" @click="menuOpen = true; mobileNavOpen = false">Voir le menu →</button>
+          <a href="https://www.ubereats.com/fr/store/les-pates-volantes/NGicsfrxRbSE7hQeYpmJHQ" target="_blank" rel="noopener noreferrer" class="mobile-nav__uber-btn">Se faire livrer →</a>
         </nav>
         <p class="mobile-nav__address">31 Rue St Jean du Pérot · La Rochelle</p>
       </div>
@@ -461,7 +473,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
               </svg>
             </div>
             <span class="svc-label">À emporter</span>
-            <span class="svc-sublabel">Click &amp; collect</span>
+            <span class="svc-sublabel">Sur commande · tel ou comptoir</span>
           </li>
 
           <li class="svc-item">
@@ -552,7 +564,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0;
   transition: padding 0.3s;
 }
 .nav--scrolled {
@@ -563,14 +575,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .nav--scrolled .nav__inner { padding-top: 1rem; padding-bottom: 1rem; }
 .nav__brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: #2C2C2C; text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
 .nav__brand:hover { color: #C1440E; }
-.nav__links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav__links { display: flex; align-items: center; gap: 2.5rem; list-style: none; margin-left: auto; }
 @media (max-width: 768px) { .nav__links { display: none; } }
 .nav__link { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: #2C2C2C; text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; position: relative; transition: color 0.2s; }
 .nav__link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #C1440E; transition: width 0.25s; }
 .nav__link:hover { color: #C1440E; }
 .nav__link:hover::after { width: 100%; }
-.nav__cta { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500; color: #F9F5EF; background: #2C2C2C; padding: 0.6rem 1.4rem; transition: background 0.2s; }
-.nav__cta:hover { background: #C1440E; }
+.nav__cta { display: inline-flex; align-items: center; gap: 0.5rem; margin-left: 2rem; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500; color: #F9F5EF; background: #C1440E; padding: 0.6rem 1.2rem; transition: background 0.2s; text-decoration: none; white-space: nowrap; }
+.nav__cta:hover { background: #a83a0c; }
+.nav__cta-icon { width: 16px; height: 16px; flex-shrink: 0; }
+@media (max-width: 768px) { .nav__cta { display: none; } }
 .nav__burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 2rem; height: 2rem; background: none; border: none; cursor: pointer; padding: 0; }
 @media (max-width: 768px) { .nav__burger { display: flex; } }
 .nav__burger-line { display: block; width: 22px; height: 1.5px; background: #2C2C2C; transition: transform 0.25s, opacity 0.25s; transform-origin: center; }
@@ -584,6 +598,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .mobile-nav__link:hover { color: #F9F5EF; }
 .mobile-nav__menu-btn { margin-top: 1rem; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 600; font-style: italic; color: #C1440E; background: none; border: none; cursor: pointer; line-height: 1.3; transition: color 0.2s; }
 .mobile-nav__menu-btn:hover { color: #F9F5EF; }
+.mobile-nav__uber-btn { margin-top: 0.5rem; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500; color: #F9F5EF; background: #C1440E; padding: 0.75rem 1.8rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
+.mobile-nav__uber-btn:hover { background: #a83a0c; }
 .mobile-nav__address { position: absolute; bottom: 2rem; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(249,245,239,0.25); font-family: 'Inter', sans-serif; }
 .mobile-nav-enter-active, .mobile-nav-leave-active { transition: opacity 0.3s ease, transform 0.3s ease; }
 .mobile-nav-enter-from, .mobile-nav-leave-to { opacity: 0; transform: translateY(-1rem); }
@@ -1076,6 +1092,32 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   color: #8C7B6B;
   font-weight: 300;
   line-height: 1.4;
+}
+
+.svc-item--link { padding: 0; }
+
+.svc-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+
+.svc-cta {
+  margin-top: 0.6rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: #C1440E;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 /* ── Paiement (strip discret) ───────────────── */
