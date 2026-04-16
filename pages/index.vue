@@ -55,14 +55,14 @@ function scrollTo(id) {
     </header>
 
     <Transition name="mobile-nav">
-      <div v-if="mobileNavOpen" class="mobile-nav">
+      <div v-if="mobileNavOpen" class="mobile-nav" @click.self="mobileNavOpen = false">
         <span class="mobile-nav__char" aria-hidden="true">面</span>
         <nav class="mobile-nav__links">
           <a href="#a-propos" class="mobile-nav__link" @click.prevent="mobileNavOpen = false; scrollTo('a-propos')">À propos</a>
           <a href="#horaires" class="mobile-nav__link" @click.prevent="mobileNavOpen = false; scrollTo('horaires')">Horaires</a>
           <a href="#services" class="mobile-nav__link" @click.prevent="mobileNavOpen = false; scrollTo('services')">Services</a>
           <button class="mobile-nav__menu-btn" @click="menuOpen = true; mobileNavOpen = false">Voir le menu →</button>
-          <a href="https://www.ubereats.com/fr/store/les-pates-volantes/NGicsfrxRbSE7hQeYpmJHQ" target="_blank" rel="noopener noreferrer" class="mobile-nav__uber-btn">Se faire livrer →</a>
+          <a href="https://www.ubereats.com/fr/store/les-pates-volantes/NGicsfrxRbSE7hQeYpmJHQ" target="_blank" rel="noopener noreferrer" class="mobile-nav__uber-btn">Se faire livrer</a>
         </nav>
         <p class="mobile-nav__address">31 Rue St Jean du Pérot · La Rochelle</p>
       </div>
@@ -569,6 +569,7 @@ function scrollTo(id) {
   padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0;
   transition: padding 0.3s;
 }
