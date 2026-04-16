@@ -16,6 +16,11 @@ watch(mobileNavOpen, (val) => {
 function onScroll() { scrolled.value = window.scrollY > 50 }
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
+
+function scrollTo(id) {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -26,9 +31,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       <div class="nav__inner">
         <a href="#" class="nav__brand">Les Pâtes Volantes</a>
         <ul class="nav__links">
-          <li><a href="#a-propos" class="nav__link">À propos</a></li>
-          <li><a href="#horaires" class="nav__link">Horaires</a></li>
-          <li><a href="#services" class="nav__link">Services</a></li>
+          <li><a href="#a-propos" class="nav__link" @click.prevent="scrollTo('a-propos')">À propos</a></li>
+          <li><a href="#horaires" class="nav__link" @click.prevent="scrollTo('horaires')">Horaires</a></li>
+          <li><a href="#services" class="nav__link" @click.prevent="scrollTo('services')">Services</a></li>
         </ul>
         <a href="https://www.ubereats.com/fr/store/les-pates-volantes/NGicsfrxRbSE7hQeYpmJHQ" target="_blank" rel="noopener noreferrer" class="nav__cta">
           <svg class="nav__cta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -53,9 +58,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       <div v-if="mobileNavOpen" class="mobile-nav">
         <span class="mobile-nav__char" aria-hidden="true">面</span>
         <nav class="mobile-nav__links">
-          <a href="#a-propos" class="mobile-nav__link" @click="mobileNavOpen = false">À propos</a>
-          <a href="#horaires" class="mobile-nav__link" @click="mobileNavOpen = false">Horaires</a>
-          <a href="#services" class="mobile-nav__link" @click="mobileNavOpen = false">Services</a>
+          <a href="#a-propos" class="mobile-nav__link" @click.prevent="mobileNavOpen = false; scrollTo('a-propos')">À propos</a>
+          <a href="#horaires" class="mobile-nav__link" @click.prevent="mobileNavOpen = false; scrollTo('horaires')">Horaires</a>
+          <a href="#services" class="mobile-nav__link" @click.prevent="mobileNavOpen = false; scrollTo('services')">Services</a>
           <button class="mobile-nav__menu-btn" @click="menuOpen = true; mobileNavOpen = false">Voir le menu →</button>
           <a href="https://www.ubereats.com/fr/store/les-pates-volantes/NGicsfrxRbSE7hQeYpmJHQ" target="_blank" rel="noopener noreferrer" class="mobile-nav__uber-btn">Se faire livrer →</a>
         </nav>
